@@ -1,0 +1,22 @@
+# 复制到 /etc/systemd/system/procurement-qa.service 后按需修改路径、用户、Python 解释器
+# sudo cp procurement-qa.service.example /etc/systemd/system/procurement-qa.service
+# sudo systemctl daemon-reload && sudo systemctl enable --now procurement-qa
+
+[Unit]
+Description=Procurement QA FastAPI (ChatGLM P-Tuning)
+After=network.target mysql.service
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/opt/procurement-assistant/Code
+EnvironmentFile=-/opt/procurement-assistant/Code/deploy/linux/env.local
+Environment=PYTHONUNBUFFERED=1
+Environment=QA_MODEL_DEVICE_SPLIT=1
+Environment=QA_CHATGLM_FP16=1
+ExecStart=/opt/procurement-assistant/Code/.venv/bin/python qa_fastapi.py --gpu 0 --host 0.0.0.0 --port 7860
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

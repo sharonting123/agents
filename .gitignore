@@ -1,0 +1,25 @@
+# 大文件与本地环境
+data/
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+.env
+.env.*
+*.log
+.DS_Store
+.idea/
+.vscode/
+.pytest_cache/
+.mypy_cache/
+*.swp
+*.swo
+
+# P-Tuning 训练产出与大数据（可挂载或单独分发）
+ptuning/**/output/
+ptuning/**/Fin_train/
+ptuning/**/train_data/*.json
+
+# Jupyter
+.ipynb_checkpoints/

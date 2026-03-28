@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>登录 — 甄甄</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="stylesheet" href="/static/auth.css" />
+  </head>
+  <body class="auth-body">
+    <div class="auth-shell">
+      <div class="auth-card">
+        <h1 class="auth-title">甄甄</h1>
+        <p class="auth-sub">政府采购投标助手 · 请登录或注册后进入问答</p>
+        <p class="auth-rules">
+          规则：用户名 2～64 字且不可重复；密码 6～12 位（字母数字符号均可，区分大小写）。
+        </p>
+
+        <div class="auth-tabs">
+          <button type="button" class="auth-tab active" id="auth-show-login">
+            登录
+          </button>
+          <button type="button" class="auth-tab" id="auth-show-register">注册</button>
+        </div>
+
+        <form id="form-login" class="auth-form" autocomplete="on">
+          <label class="auth-label">用户名</label>
+          <input
+            type="text"
+            id="login-username"
+            name="username"
+            autocomplete="username"
+            placeholder="用户名"
+            maxlength="64"
+          />
+          <label class="auth-label">密码</label>
+          <input
+            type="password"
+            id="login-password"
+            name="password"
+            autocomplete="current-password"
+            placeholder="密码"
+          />
+          <button type="submit" class="auth-submit">登录并进入问答</button>
+        </form>
+
+        <form id="form-register" class="auth-form" style="display: none" autocomplete="on">
+          <label class="auth-label">用户名（唯一）</label>
+          <input
+            type="text"
+            id="reg-username"
+            name="username"
+            autocomplete="username"
+            placeholder="2–64 字符，不可重复"
+            maxlength="64"
+          />
+          <label class="auth-label">密码</label>
+          <input
+            type="password"
+            id="reg-password"
+            name="password"
+            autocomplete="new-password"
+            placeholder="6～12 位"
+          />
+          <label class="auth-label">确认密码</label>
+          <input
+            type="password"
+            id="reg-password2"
+            name="password2"
+            autocomplete="new-password"
+            placeholder="再次输入密码"
+          />
+          <button type="submit" class="auth-submit">注册</button>
+        </form>
+
+        <p id="auth-msg" class="auth-msg" aria-live="polite"></p>
+      </div>
+    </div>
+    <script src="/static/login.js"></script>
+  </body>
+</html>

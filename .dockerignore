@@ -1,0 +1,17 @@
+.git
+.gitignore
+**/__pycache__
+**/*.pyc
+**/*.pyo
+.venv
+venv
+.env
+*.log
+.pytest_cache
+.mypy_cache
+.idea
+.vscode
+terminals
+# 若模型与权重通过 volume 挂载，可不打进镜像（取消下行注释以减小镜像）
+# ptuning/**/output/
+# web_demo/

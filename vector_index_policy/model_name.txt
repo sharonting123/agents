@@ -1,0 +1,1 @@
+G:\Models\text2vec-base-chinese

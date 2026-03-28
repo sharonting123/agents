@@ -1,0 +1,38 @@
+# 在 Code 目录执行: docker compose up -d --build
+# 需 NVIDIA Container Toolkit；Compose 2.0+ 支持 gpus 字段
+
+version: "3.8"
+
+services:
+  procurement-qa:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: procurement-qa:latest
+    container_name: procurement-qa
+    ports:
+      - "7860:7860"
+    environment:
+      PYTHONUNBUFFERED: "1"
+      QA_MODEL_DEVICE_SPLIT: "1"
+      QA_CHATGLM_FP16: "1"
+      # 与下方 volumes 挂载一致
+      LLM_MODEL_DIR: /models/chatglm2-6b
+      CODE_BASE_DIR: /app
+      # MySQL：宿主机上的库可用 host.docker.internal（Docker Desktop Win/Mac）
+      # MYSQL_HOST: host.docker.internal
+    volumes:
+      # 宿主机 ChatGLM2 基座 -> 容器（按你本机路径改左侧）
+      - /path/to/chatglm2-6b:/models/chatglm2-6b:ro
+      # P-Tuning 权重（若未打进镜像）
+      - ./ptuning:/app/ptuning:ro
+      # 可选：开发时整目录挂载
+      # - .:/app
+    # GPU（Compose 2.x + nvidia-container-toolkit；若不生效请用 README 里 docker run --gpus all）
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]

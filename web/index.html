@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>甄甄 — 政府采购投标助手</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <div class="header-row">
+          <div class="header-titles">
+            <h1>甄甄</h1>
+            <p>政府采购投标助手 · 助您快速查询招标与政策信息</p>
+          </div>
+          <div class="chat-toolbar" id="chat-toolbar">
+            <span class="chat-toolbar-user"
+              ><span class="muted">已登录</span>
+              <strong id="chat-username"></strong></span
+            >
+            <button type="button" class="secondary" id="auth-logout">退出登录</button>
+          </div>
+        </div>
+        <nav class="agent-tabs" role="tablist" aria-label="选择甄甄工作模式">
+          <button
+            type="button"
+            class="agent-tab active"
+            role="tab"
+            aria-selected="true"
+            data-mode="nl2sql"
+            id="tab-nl2sql"
+          >
+            库表查询
+          </button>
+          <button
+            type="button"
+            class="agent-tab"
+            role="tab"
+            aria-selected="false"
+            data-mode="policy"
+            id="tab-policy"
+          >
+            政策咨询
+          </button>
+        </nav>
+        <p class="agent-hint" id="agent-hint">
+          库问即答：本地数据库精准查询，直接提取标准答案。
+        </p>
+      </header>
+      <div id="chat" class="chat" aria-live="polite"></div>
+      <div class="input-row">
+        <textarea
+          id="q"
+          placeholder="输入问题，Enter 发送，Shift+Enter 换行"
+        ></textarea>
+        <div style="display: flex; flex-direction: column; gap: 0.5rem">
+          <button type="button" id="send">发送</button>
+          <button type="button" class="secondary" id="clear">清空</button>
+        </div>
+      </div>
+      <p id="status" class="status"></p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+    <script src="/static/app.js"></script>
+  </body>
+</html>
