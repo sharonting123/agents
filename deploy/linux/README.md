@@ -27,7 +27,7 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install -U pip
 # 依赖以项目内 requirements 为准，例如：
-pip install -r "requirements（以这个为准）.txt"
+pip install -r requirements.txt
 pip install fastapi "uvicorn[standard]"
 ```
 

@@ -85,7 +85,7 @@
 
 ## 5. 如何运行（典型完整模式）
 
-1. **环境**：Python 3，已安装 `torch`（建议与 CUDA 匹配）、`transformers`、`fastapi`、`uvicorn[standard]`、`pymysql`（使用 MySQL 时）等；详见 `requirements（以这个为准）.txt`。
+1. **环境**：Python 3，已安装 `torch`（建议与 CUDA 匹配）、`transformers`、`fastapi`、`uvicorn[standard]`、`pymysql`（使用 MySQL 时）等；详见 `requirements.txt`。
 2. **模型文件**：将 **ChatGLM2-6B** 置于 `data/pretrained_models/chatglm2-6b/` 或通过环境变量 **`LLM_MODEL_DIR`** 指定；P-Tuning 权重路径见 **`config/cfg.py`** 中 `CLASSIFY_CHECKPOINT_PATH`、`NL2SQL_CHECKPOINT_PATH`、`KEYWORDS_CHECKPOINT_PATH`。
 3. **启动**（在 `Code` 目录下）：
 

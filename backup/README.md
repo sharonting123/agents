@@ -13,7 +13,7 @@
 | `test_score.py` 同级 | 若需批量评测，可从本目录拷回或 `python backup/test_score.py`（需在 `Code` 下且 `PYTHONPATH` 正确） |
 | `answers/replay_pid*.log` → `logs/` | 运行遗留日志 |
 | `tools/run_chart_smoke.py` | 图表链路自检小工具，非服务启动必需 |
-| `requirements_legacy/` | 除 **`requirements（以这个为准）.txt`** 外的历史/平台 requirements 副本 |
+| `requirements_legacy/` | 历史/平台 requirements 副本（主依赖见仓库根目录 **`requirements.txt`**） |
 | `docs/` | 阅读顺序说明、旧「金融年报」实战文档、技术路线图等（查阅用，非运行时依赖） |
 
 ## 仍保留在 `Code/` 根目录的相关入口（未移动）
